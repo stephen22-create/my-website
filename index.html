@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stephen Kampamba | Cybersecurity | Kapasa Makasa Uni</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: New Roman;
+      background: linear-gradient(145deg, #f6f9fc 0%, #eef2f5 100%);
+      color: #1a2a3f;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+    }
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 2rem;
+      padding: 0.8rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    /* SCHOOL LOGO - your uploaded image */
+    .school-logo-img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      background: #0b2b3b;
+    }
+    .logo-text h2 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #0f2f3f;
+    }
+    .logo-text p {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #2c6e6e;
+    }
+    .nav-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .nav-btn {
+      background: transparent;
+      border: none;
+      padding: 0.7rem 1.8rem;
+      font-weight: 600;
+      border-radius: 3rem;
+      cursor: pointer;
+      color: #1f3e4b;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s;
+    }
+    .nav-btn i { margin-right: 8px; }
+    .nav-btn.active {
+      background: #1f5f6b;
+      color: white;
+      box-shadow: 0 4px 10px rgba(31,95,107,0.3);
+    }
+    .nav-btn:hover:not(.active) {
+      background: rgba(31,95,107,0.12);
+      transform: translateY(-2px);
+    }
+    .pages-container {
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(2px);
+      border-radius: 2rem;
+      padding: 2rem;
+      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1);
+      min-height: 60vh;
+    }
+    .page { display: none; animation: fadeIn 0.3s ease; }
+    .active-page { display: block; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(6px);} to { opacity:1; transform:translateY(0);} }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .hero-text { flex: 2; }
+    .hero-badge {
+      background: #dceef5;
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #1c6b5e;
+      margin-bottom: 1rem;
+    }
+    .hero-text h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #144d5c, #2f8f7c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .highlight { color: #1e6b5e; font-weight: 800; }
+    .btn-soft {
+      background: #1f5f6b;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.8rem;
+      border-radius: 3rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+    .btn-soft:hover { background: #0d454f; transform: scale(1.02); }
+    .grid-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 2rem 0;
+    }
+    .info-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 1.8rem;
+      flex: 1 1 200px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .info-card i { font-size: 2rem; color: #2f8f7c; margin-bottom: 0.8rem; }
+    .cyber-img {
+      width: 100%;
+      border-radius: 1.5rem;
+      margin: 1.5rem 0;
+      max-height: 360px;
+      object-fit: cover;
+      box-shadow: 0 12px 22px -8px rgba(0,0,0,0.2);
+    }
+    .tip-box {
+      background: #eaf4f0;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      border-left: 6px solid #1f5f6b;
+    }
+    .uni-logo-big {
+      background: #f8f4e8;
+      border-radius: 2rem;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+    }
+    .uni-logo-big img {
+      max-width: 100%;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+    }
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #4b6f7a;
+      border-top: 1px solid rgba(0,0,0,0.05);
+      padding-top: 1.5rem;
+    }
+    @media (max-width: 720px) {
+      .container { padding: 1rem; }
+      .hero-text h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- HEADER WITH YOUR UPLOADED SCHOOL LOGO (images.jpeg) -->
+  <div class="header">
+    <div class="logo-area">
+      <img src="images.jpeg" alt="Kapasa Makasa University Logo" class="school-logo-img">
+      <div class="logo-text">
+        <h2>KAPASA MAKASA <span style="font-weight:400">UNIVERSITY</span></h2>
+        <p><i class="fas fa-lightbulb"></i> LEARN TO INNOVATE</p>
+      </div>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn active" data-page="home"><i class="fas fa-home"></i> Home</button>
+      <button class="nav-btn" data-page="about"><i class="fas fa-user-astronaut"></i> About Me</button>
+      <button class="nav-btn" data-page="cyber"><i class="fas fa-shield-haltered"></i> Cyber Hub</button>
+    </div>
+  </div>
+
+  <div class="pages-container">
+    <!-- HOME PAGE -->
+    <div id="home-page" class="page active-page">
+      <div class="hero">
+        <div class="hero-text">
+          <div class="hero-badge"><i class="fas fa-shield"></i> Cybersecurity Student @ Kapasa Makasa</div>
+          <h1>Stephen <span class="highlight">KAMPAMBA</span></h1>
+          <p style="font-size:1.2rem; margin-top:0.5rem;">Securing tomorrow's digital world with ethical innovation.</p>
+          <p>As an aspiring security analyst, I combine curiosity with responsibility. BSc in Cybersecurity candidate, dedicated to building resilient systems and fostering cyber awareness.</p>
+          <button class="btn-soft" id="exploreCta"><i class="fas fa-arrow-right"></i> Explore my journey</button>
+        </div>
+        <div style="flex:1; text-align:center; background:#eef3f1; border-radius:2rem; padding:1rem;">
+          <i class="fas fa-user-shield" style="font-size:4rem; color:#1d6f66;"></i>
+          <p><strong>Stephen Kampamba</strong><br><span style="font-size:0.8rem;">CYS(Student) | SOC Enthusiast</span></p>
+        </div>
+      </div>
+      <div style="background:#f0f6f5; border-radius:1.2rem; padding:0.8rem; margin:1.5rem 0;">
+        <i class="fas fa-clock"></i> <span id="liveGreeting"></span> — <span id="dynamicDate"></span>
+      </div>
+      <div class="grid-cards">
+        <div class="info-card"><i class="fas fa-code-branch"></i> <h3>+5 Labs</h3><p>Hands-on security simulations</p></div>
+        <div class="info-card"><i class="fas fa-globe"></i> <h3>Cyber Inclusion</h3><p>Mentoring young tech talents</p></div>
+        <div class="info-card"><i class="fas fa-award"></i> <h3>ISC² Candidate</h3><p>Preparing for CC exam</p></div>
+      </div>
+      <p><i class="fas fa-heart" style="color:#c26b6b;"></i> Inclusive mindset: Cybersecurity for all abilities, backgrounds & communities.</p>
+    </div>
+
+    <!-- ABOUT PAGE (with your school logo image larger) -->
+    <div id="about-page" class="page">
+      <h2><i class="fas fa-user-graduate"></i> About Stephen Kampamba</h2>
+      <div style="height:4px; width:70px; background:#2f8f7c; margin-bottom:1.5rem;"></div>
+      <div style="display:flex; flex-wrap:wrap; gap:2rem;">
+        <div style="flex:2;">
+          <p><strong>Stephen Kampamba</strong> is a passionate cybersecurity student at <strong>Kapasa Makasa University</strong>, driven by equitable digital safety. He actively participates in CTF competitions and cyber awareness campaigns in Zambia.</p>
+          <p style="margin-top:1rem;">💡 <strong>Mission:</strong> blend technical prowess with human-centered design — making security intuitive and inclusive for underrepresented groups.</p>
+          <p>🎓 BSc Cybersecurity (2024–2027) | Intoduction to cybersecurity certificate</p>
+        </div>
+        <!-- YOUR SCHOOL LOGO PHOTO (large display) -->
+        <div class="uni-logo-big" style="flex:1;">
+          <img src="images.jpeg" alt="Kapasa Makasa University Official Logo" style="width:100%; max-width:200px; border-radius:20px;">
+          <h3 style="margin-top:10px;">KAPASA MAKASA UNIVERSITY</h3>
+          <p style="font-weight:bold;">LEARN TO INNOVATE</p>
+        </div>
+      </div>
+      <div class="tip-box" style="background:#e3f0ec; margin-top:1.5rem;">
+        <i class="fas fa-hand-holding-heart"></i> <strong>Inclusion Commitment:</strong> “Cybersecurity must be barrier‑free. I advocate for equal access to digital defense education for neurodivergent and disabled communities.”
+      </div>
+      <button class="btn-soft" id="contactMock"><i class="fas fa-envelope"></i> myfirstwebpage@gmail.com</button>
+    </div>
+
+    <!-- CYBER HUB PAGE - with hacking/cybersecurity related photo -->
+    <div id="cyber-page" class="page">
+      <h2><i class="fas fa-shield-virus"></i> Cyber Security Hub</h2>
+      <p>Exploring modern threats, digital resilience, and ethical defense strategies.</p>
+      <!-- HACKING / CYBERSECURITY RELATED PHOTO (replaced) -->
+      <img class="cyber-img" src="https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+           alt="Hacker with multiple screens, cybersecurity concept" 
+           onerror="this.src='https://placehold.co/900x400/0a1a1a/44ffaa?text=ETHICAL+HACKING+%7C+CYBER+DEFENSE'">
+      <div style="display:flex; flex-wrap:wrap; gap:1.5rem; margin:1.5rem 0;">
+        <div style="flex:1; background:#ffffffcc; border-radius:1.2rem; padding:1rem;">
+          <i class="fas fa-terminal"></i> <strong>Pen Testing</strong>
+          <p>Simulating real-world attacks to strengthen defenses.</p>
+        </div>
+        <div style="flex:1; background:#ffffffcc; border-radius:1.2rem; padding:1rem;">
+          <i class="fas fa-bug"></i> <strong>Bug Bounty</strong>
+          <p>Finding vulnerabilities, earning rewards, securing web apps.</p>
+        </div>
+      </div>
+      <div class="tip-box">
+        <i class="fas fa-lightbulb"></i> <strong>🔐 Dynamic Cyber Insight</strong>
+        <p id="randomTipDisplay" style="margin-top:12px; font-weight:500;"></p>
+        <button id="newTipBtn" class="btn-soft" style="background:#2a5f6e;"><i class="fas fa-sync-alt"></i> Generate Security Tip</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <i class="fas fa-globe"></i> Stephen Kampamba | Cybersecurity Portfolio | Kapasa Makasa University — Inclusive Innovation | © 2026
+  </footer>
+</div>
+
+<script>
+  // Page navigation
+  const pages = {
+    home: document.getElementById('home-page'),
+    about: document.getElementById('about-page'),
+    cyber: document.getElementById('cyber-page')
+  };
+  const navBtns = document.querySelectorAll('.nav-btn');
+  function showPage(pageId) {
+    Object.values(pages).forEach(p => p.classList.remove('active-page'));
+    pages[pageId].classList.add('active-page');
+    navBtns.forEach(btn => {
+      if(btn.getAttribute('data-page') === pageId) btn.classList.add('active');
+      else btn.classList.remove('active');
+    });
+  }
+  navBtns.forEach(btn => {
+    btn.addEventListener('click', () => showPage(btn.getAttribute('data-page')));
+  });
+  document.getElementById('exploreCta')?.addEventListener('click', () => showPage('about'));
+  document.getElementById('contactMock')?.addEventListener('click', () => alert("📧 Stephen KAMPAMBA\nstephen.kampamba@kmuedu.zm\nLet's build an inclusive cyber future!"));
+
+  // Dynamic date & greeting
+  function updateDateTime() {
+    const now = new Date();
+    const dateStr = now.toLocaleDateString(undefined, { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+    const hour = now.getHours();
+    let greeting = hour<12 ? 'Good morning, Stephen 🌅' : (hour<18 ? 'Good afternoon, Stephen ☀️' : 'Good evening, Stephen 🌙');
+    document.getElementById('liveGreeting').innerText = greeting;
+    document.getElementById('dynamicDate').innerText = dateStr;
+  }
+  updateDateTime();
+  setInterval(updateDateTime, 60000);
+
+  // Cyber tips (hacking/security focused)
+  const tips = [
+    "🔒 Enable MFA everywhere — blocks 99.9% of account attacks.",
+    "🧠 Phishing simulation: always verify email sender domains.",
+    "🔐 Use a password manager; never reuse passwords.",
+    "🛡️ Keep software updated: patches fix vulnerabilities.",
+    "📱 Lock devices with biometrics + PIN.",
+    "🌐 Avoid public WiFi without a VPN.",
+    "📧 Don't click suspicious attachments — report them!",
+    "🎓 Learn OWASP Top 10 for web security.",
+    "🔄 Back up critical files (3-2-1 rule).",
+    "🚨 Social engineering is top threat — verify identity.",
+    "💻 Use a firewall and monitor outgoing connections.",
+    "⚡ Try HackMe & CTF platforms to sharpen ethical hacking skills."
+  ];
+  const tipDisplay = document.getElementById('randomTipDisplay');
+  const tipBtn = document.getElementById('newTipBtn');
+  function showRandomTip() {
+    tipDisplay.innerHTML = `<i class="fas fa-shield-haltered"></i> ${tips[Math.floor(Math.random() * tips.length)]}`;
+  }
+  tipBtn?.addEventListener('click', showRandomTip);
+  showRandomTip();
+</script>
+</body>
+</html>
